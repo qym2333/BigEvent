@@ -32,10 +32,10 @@ $(function () {
     });
 
     //监听注册表单提交事件
-    $('#reg_form').on('submit', function (e) {
+    $('#formReg').on('submit', function (e) {
         e.preventDefault();
-        let username = $('#reg_form input[name=username]').val();
-        let password = $('#reg_form input[name=password]').val();
+        let username = $('#formReg input[name=username]').val();
+        let password = $('#formReg input[name=password]').val();
         $.ajax({
             type: "POST",
             url: "http://ajax.frontend.itheima.net/api/reguser",
@@ -52,5 +52,24 @@ $(function () {
                 $('.login-box input[name=username]').val(username);
             }
         });
+    });
+
+    //监听登录表单提交事件
+    $('#formLogin').submit(function (e) {
+        e.preventDefault();
+        let data = $(this).serialize();
+        $.ajax({
+            type: 'POST',
+            url: 'http://ajax.frontend.itheima.net/api/login',
+            data: data,
+            success: function (res) {
+                if (res.status !== 0)
+                    return layer.msg(res.message);
+                layer.msg(res.message);
+                console.log(res.token);
+                localStorage.setItem('token', res.token);
+                location.href = '/index.html';
+            }
+        })
     });
 })
