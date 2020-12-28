@@ -38,7 +38,7 @@ $(function () {
         let password = $('#formReg input[name=password]').val();
         $.ajax({
             type: "POST",
-            url: "http://ajax.frontend.itheima.net/api/reguser",
+            url: "/api/reguser",
             data: {
                 username: username,
                 password: password
@@ -60,7 +60,7 @@ $(function () {
         let data = $(this).serialize();
         $.ajax({
             type: 'POST',
-            url: 'http://ajax.frontend.itheima.net/api/login',
+            url: '/api/login',
             data: data,
             success: function (res) {
                 if (res.status !== 0)
