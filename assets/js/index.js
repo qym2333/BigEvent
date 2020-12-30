@@ -18,7 +18,9 @@ $(function () {
 /**
  * @description 获取当前的登录用户信息
  */
+
 function getUserInfo() {
+    // let user = null;
     $.ajax({
         type: "GET",
         url: "/my/userinfo",
@@ -26,13 +28,16 @@ function getUserInfo() {
         headers: {
             Authorization: localStorage.getItem('token') || ''
         },
+        // async: false, 
         success: function (res) {
             if (res.status !== 0) return layer.msg('获取用户信息失败');
             renderAvatar(res.data);
+            user = res.data;
+            sessionStorage.setItem('user', JSON.stringify(res.data));
         }
     });
+    // return user;
 }
-
 
 /**
  * @description 渲染用户头像

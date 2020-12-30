@@ -15,4 +15,4 @@ $.ajaxPrefilter(function (opt) {
             location.href = '/login.html'
         }
     }
-})
+});
