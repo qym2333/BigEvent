@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css" />
+    <link rel="stylesheet" href="/assets/css/article/art_cate.css" />
+</head>
+
+<body>
+    <!-- 卡片区域 -->
+    <div class="layui-card">
+        <div class="layui-card-header">
+            <span>文章类别管理</span>
+            <button type="button" class="layui-btn layui-btn-normal layui-btn-sm">添加类别</button>
+        </div>
+        <div class="layui-card-body">
+            <table class="layui-hide" id="cateList" lay-filter="cateList"></table>
+        </div>
+    </div>
+
+    <script type="text/html" id="optBar">
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+
+    <script src="/assets/lib/jquery.js"></script>
+    <script src="/assets/lib/layui/layui.all.js"></script>
+    <script src="/assets/js/baseApi.js"></script>
+    <script src="/assets/js/article/art_cate copy.js"></script>
+</body>
+
+</html>
